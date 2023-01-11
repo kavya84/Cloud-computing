@@ -3,6 +3,11 @@ PROJECT-1
 Map-reduce program for Netflix data analysis.The dataset contains movies and for each movie the user's ratings are calculated from 1 to 5.Calculate avg rating the user give to movies and construct histograms of the frequency distribution of these average ratings from all users using map-reduce 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
+PROJECT-2 Block Matrix addition using map-reduce 
+For this project, you are asked to implement block matrix addition in Map-Reduce. You will take two sparse matrices as input, convert them to block matrices, and then perform block matrix addition on them. The sum of two matrices M and N is the matrix R such that Rij=Mij+Nij. A sparse matrix is a dataset of triples (i,j,v), where i and j are the indices and v is that matrix value at the indices i and j. A triple is constructed with the Java class Triple. A block matrix is a dataset of blocks. Each block is a dense Java matrix of size rows*columns constructed with the Java class Block (here, rows=columns=100). A block matrix is stored in HDFS as a binary file (in SequenceTextInputFormat) of key-values, where the key is a pair of block coordinates (ci,cj) (constructed with the Java class Pair) and the value is a block. A matrix element Mij is stored inside the block with block coordinates (i/rows,j/columns) at the location (i%rows,j%columns) inside the block. The block matrix addition of M and N is done by finding blocks from M and N with the same block coordinates and by adding the blocks together using regular matrix addition in Java.
+Your project is to convert two sparse matrices M and N which are read from files to block matrices and then add them using block matrix addition. First, you need to convert a sparse matrix to a block matrix using the following Map-Reduce pseudo-code (called twice, for M and for N):
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
 PROJECT-3
 Graph processing using map-reduce
 An undirected graph is represented in the input text file using one line per graph vertex. For example, the line
